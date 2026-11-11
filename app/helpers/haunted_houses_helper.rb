@@ -1,0 +1,2 @@
+module HauntedHousesHelper
+end

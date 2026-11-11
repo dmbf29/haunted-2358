@@ -1,0 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @haunted_house.banner_url %>);">
+  <div class="container">
+    <h1><%= @haunted_house.name %></h1>
+    <%= link_to "Summon Monster", '#', class: 'btn btn-danger mt-2'  %>
+  </div>
+</div>
+<div class="container mt-3 mb-5">
+  <div class="cards">
+    <% @haunted_house.monsters.each do |monster| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= monster.image_url %>)">
+        <%= monster.name %>
+        <%= link_to monster_path, class: 'card-remove-link', data: { turbo_method: :delete, turbo_confirm: "Did you vanquish #{monster.name}" } do %>
+          <i class="fa-solid fa-person-through-window"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
